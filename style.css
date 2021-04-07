@@ -1,0 +1,146 @@
+#back {
+  background-color: aliceblue;
+}
+
+.great {
+  color: salmon;
+
+}
+
+.panel:hover {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  box-shadow: inset 4px 4px 4px 4px turquoise;
+  box-sizing: border-box;
+}
+
+.paneltwo {
+  box-shadow: inset 0px 0px 0px 3px turquoise;
+  box-sizing: border-box;
+}
+.idk {
+  color: brown;
+  text-align: center;
+  font-family: fantasy;
+}
+
+.red {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.green {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+
+.blue {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color:blue;
+}
+
+.orange {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+
+.purple {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+}
+
+.yellow {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.cyan {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: cyan;
+}
+
+.indigo {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: indigo;
+}
+
+.cyan {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: cyan;
+}
+
+.coral {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: coral;
+}
+
+.maroon {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: maroon;
+}
+
+.seagreen {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: seagreen;
+}
+
+.grey {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+}
+
+.salmon {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: salmon;
+}
+
+.olive {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: olive;
+}
+
+.navy {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: navy;
+}
+
+.saddlebrown {
+  border: 200px;
+  width: 100px;
+  height: 100px;
+  background-color: saddlebrown;
+}
+
