@@ -20,11 +20,12 @@ let gamePattern = []
 let userClickedPattern = []
 let level = 0
 let start = false
-let $ = randomNumber 
+
 // Generate next pattern
 function nextSequence () {
   const randomNumber = Math.floor(Math.random() * 16)
   const randomColour = colors[randomNumber]
+  const $ = randomNumber
   gamePattern.push(randomColour)
 }
 
