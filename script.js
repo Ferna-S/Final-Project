@@ -15,7 +15,7 @@ const fourteen = document.querySelector('.olive')
 const fifteen = document.querySelector('.navy')
 const sixteen = document.querySelector('.saddlebrown')
 
-const colors = [one, two, three, four, five, six, seven, eigth, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen]
+const colors = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen]
 let gamePattern = []
 let userClickedPattern = []
 let level = 0
@@ -32,7 +32,7 @@ function nextSequence () {
 function animatePress (colour) {
   $('#' + colour).addClass('pressed')
 
-  setTimeout (function() {
+  setTimeout(function () {
     $('#' + colour).removeClass('pressed')
   }, 100)
 }
@@ -47,9 +47,7 @@ function showGamePattern () {
       const currentColour = gamePattern[start]
       animatePress(currentColour)
       start++
-    }
-    
-    else {
+    } else {
       clearInterval(pattern)
     }
   }
@@ -81,7 +79,7 @@ function gameOver () {
 }
 
 // Handle any mouse click event on the buttons
-$('.btn').on ('click', function(event) {
+$('.btn').on('click', function (event) {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
@@ -99,10 +97,8 @@ $('.btn').on ('click', function(event) {
       nextSequence()
       showGamePattern()
       $('.header').text('Level' + level)
-    }
-
-    // If there is a difference between userClickedPattern and gamePattern
-    else if (!subList()) {
+    } else if (!subList()) {
+       // If there is a difference between userClickedPattern and gamePattern 
       // Initiate gameOver and reset the game
       gameOver()
     }
