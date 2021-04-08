@@ -20,7 +20,7 @@ let gamePattern = []
 let userClickedPattern = []
 let level = 0
 let start = false
-
+let $ = randomNumber 
 // Generate next pattern
 function nextSequence () {
   const randomNumber = Math.floor(Math.random() * 16)
@@ -30,10 +30,10 @@ function nextSequence () {
 
 // Create the animation of button when pressed
 function animatePress (colour) {
-  any('#' + colour).addClass('pressed')
+  $('#' + colour).addClass('pressed')
 
   setTimeout(function () {
-    any('#' + colour).removeClass('pressed')
+    $('#' + colour).removeClass('pressed')
   }, 100)
 }
 
@@ -69,17 +69,17 @@ function gameOver () {
   gamePattern = []
   start = false
 
-  any('body').addClass('lose')
-  any('p').text('Game Over!!')
+  $('body').addClass('lose')
+  $('p').text('Game Over!!')
 
   setTimeout(function () {
-    any('body').removeClass('lose')
-    any('p').text('Press any key to restart')
+    $('body').removeClass('lose')
+    $('p').text('Press any key to restart')
   }, 1000)
 }
 
 // Handle any mouse click event on the buttons
-any('.btn').on('click', function (event) {
+$('.btn').on('click', function (event) {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
@@ -96,7 +96,7 @@ any('.btn').on('click', function (event) {
       userClickedPattern = []
       nextSequence()
       showGamePattern()
-      any('.header').text('Level' + level)
+      $('.header').text('Level' + level)
     } else if (!subList()) {
       // If there is a difference between userClickedPattern and gamePattern
       // Initiate gameOver and reset the game
