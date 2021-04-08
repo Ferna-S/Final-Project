@@ -15,10 +15,6 @@
   box-sizing: border-box;
 }
 
-.paneltwo {
-  box-shadow: inset 0px 0px 0px 3px turquoise;
-  box-sizing: border-box;
-}
 .idk {
   color: brown;
   text-align: center;
@@ -43,7 +39,7 @@
   border: 200px;
   width: 100px;
   height: 100px;
-  background-color:blue;
+  background-color: blue;
 }
 
 .orange {
@@ -79,13 +75,6 @@
   width: 100px;
   height: 100px;
   background-color: indigo;
-}
-
-.cyan {
-  border: 200px;
-  width: 100px;
-  height: 100px;
-  background-color: cyan;
 }
 
 .coral {
@@ -143,4 +132,3 @@
   height: 100px;
   background-color: saddlebrown;
 }
-
