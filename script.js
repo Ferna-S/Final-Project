@@ -15,7 +15,7 @@ const fourteen = document.querySelector('.olive')
 const fifteen = document.querySelector('.navy')
 const sixteen = document.querySelector('.saddlebrown')
 
-const colors = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eigth', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen']
+const colors = [one, two, three, four, five, six, seven, eigth, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen]
 let gamePattern = []
 let userClickedPattern = []
 let level = 0
@@ -30,10 +30,10 @@ function nextSequence () {
 
 // Create the animation of button when pressed
 function animatePress (colour) {
-  $("#" + colour).addClass('pressed')
+  $('#' + colour).addClass('pressed')
 
-  setTimeout(function() {
-    $("#" + colour).removeClass("pressed")
+  setTimeout (function() {
+    $('#' + colour).removeClass('pressed')
   }, 100)
 }
 
@@ -48,6 +48,7 @@ function showGamePattern () {
       animatePress(currentColour)
       start++
     }
+    
     else {
       clearInterval(pattern)
     }
@@ -56,7 +57,7 @@ function showGamePattern () {
 
 // To check if userClickedPattern contains inside gamePattern
 function subList () {
-  for (const i = 0; i < userClickedPattern.length; i++) {
+  for (let i = 0; i < userClickedPattern.length; i++) {
     if (userClickedPattern[i] !== gamePattern[i]) return false
   }
 
@@ -73,7 +74,7 @@ function gameOver () {
   $('body').addClass('lose')
   $('p').text('Game Over!!')
 
-  setTimeout(function() {
+  setTimeout (function() {
     $('body').removeClass('lose')
     $('p').text('Press any key to restart')
   }, 1000)
