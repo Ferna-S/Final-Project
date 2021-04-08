@@ -30,10 +30,10 @@ function nextSequence () {
 
 // Create the animation of button when pressed
 function animatePress (colour) {
-  $('#' + colour).addClass('pressed')
+  any('#' + colour).addClass('pressed')
 
   setTimeout(function () {
-    $('#' + colour).removeClass('pressed')
+    any('#' + colour).removeClass('pressed')
   }, 100)
 }
 
@@ -69,17 +69,17 @@ function gameOver () {
   gamePattern = []
   start = false
 
-  $('body').addClass('lose')
-  $('p').text('Game Over!!')
+  any('body').addClass('lose')
+  any('p').text('Game Over!!')
 
   setTimeout(function () {
-    $('body').removeClass('lose')
-    $('p').text('Press any key to restart')
+    any('body').removeClass('lose')
+    any('p').text('Press any key to restart')
   }, 1000)
 }
 
 // Handle any mouse click event on the buttons
-$('.btn').on('click', function (event) {
+any('.btn').on('click', function (event) {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
@@ -96,7 +96,7 @@ $('.btn').on('click', function (event) {
       userClickedPattern = []
       nextSequence()
       showGamePattern()
-      $('.header').text('Level' + level)
+      any('.header').text('Level' + level)
     } else if (!subList()) {
       // If there is a difference between userClickedPattern and gamePattern
       // Initiate gameOver and reset the game
