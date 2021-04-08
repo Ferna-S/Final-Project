@@ -9,16 +9,14 @@
 .header {
   margin: 50px 0;
   color: brown;
-  font-family: 'Press Start 2P', cursive;
 }
 
 .container {
   margin: 40px 0;
-  vertical-align: 10px;
 }
 
 .pressed {
-  box-shadow: 0 0 20px white;
+  box-shadow: inset 0 0 20px black;
   background-color: grey;
 }
 

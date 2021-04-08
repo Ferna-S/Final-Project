@@ -1,3 +1,4 @@
+// id for buttons
 const one = document.querySelector('.red')
 const two = document.querySelector('.green')
 const three = document.querySelector('.blue')
@@ -30,11 +31,11 @@ function nextSequence () {
 }
 
 // Create the animation of button when pressed
-function animatePress (colour) {
-  document.getElementsByClassName('#' + colour).addClass('pressed')
+function animatePress (colors) {
+  document.getElementsByClassName('#' + colors).addClass('.pressed')
 
   setTimeout(function () {
-    document.getElementsByClassName('#' + colour).removeClass('pressed')
+    document.getElementsByClassName('#' + colors).removeClass('.pressed')
   }, 100)
 }
 
@@ -80,7 +81,7 @@ function gameOver () {
 }
 
 // Handle any mouse click event on the buttons
-document.getElementsByClassName('.btn').on('click', function (event) {
+document.getElementById.onclick = function () {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
@@ -104,4 +105,4 @@ document.getElementsByClassName('.btn').on('click', function (event) {
       gameOver()
     }
   }
-})
+}
