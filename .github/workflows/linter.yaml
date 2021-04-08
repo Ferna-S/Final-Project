@@ -43,9 +43,3 @@ jobs:
           DEFAULT_BRANCH: master
 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-Then place the following code in a README.md file in your root folder:
-
-Make sure you replace <OWNER> with your Github Account name, and <REPOSITORY> with the name of your project!
-
- [![linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
