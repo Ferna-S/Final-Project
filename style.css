@@ -25,11 +25,13 @@
 .lose {
   background-color: red;
 }
+
 .btn {
   height: 100px;
   width: 100px;
   border: 200px;
 }
+
 /* try to add later to make it look cooler
 .panel:hover {
   width: 100px;
