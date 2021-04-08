@@ -15,70 +15,99 @@ const fourteen = document.querySelector('.olive')
 const fifteen = document.querySelector('.navy')
 const sixteen = document.querySelector('.saddlebrown')
 
-const getRandomPanel = () => {
-  const panels = [
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-    eleven,
-    twelve,
-    thirteen,
-    fourteen,
-    fifteen,
-    sixteen
-  ]
-  return panels[parseInt(Math.random() * panels.length)]
+const colors = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eigth', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen']
+var gamePattern = []
+var userClickedPattern = []
+var level = 0
+var start = false
+
+// Generate next pattern
+function nextSequence() {
+  var randomNumber = Math.floor(Math.random() * 16)
+  var randomColour = colors[randomNumber]
+  gamePattern.push(randomColour)
 }
 
-const sequence = [getRandomPanel()]
-let sequenceToGuess = [...sequence]
+// Create the animation of button when pressed
+function animatePress(colour) {
+  $("#" + colour).addClass("pressed")
 
-const flash = panel => {
-  return new Promise((resolve, reject) => {
-    panel.className += ' active'
-    setTimeout(() => {
-      panel.className = panel.className.replace(
-        ' active',
-        ''
-      )
-      setTimeout(() => {
-        resolve()
-      }, 200)
-    }, 500)
-  })
+  setTimeout(function() {
+    $("#" + colour).removeClass("pressed")
+  }, 100)
 }
 
-let canClick = false
+// To show the pattern for the player to follow
+function showGamePattern() {
 
-const panelClicked = panelClicked => {
-  if (!canClick) return
-  const expectedPanel = sequenceToGuess.shift()
-  if (expectedPanel === panelClicked) {
-    if (sequenceToGuess.length === 0) {
-      // the start of a new round
-      sequence.push(getRandomPanel())
-      sequenceToGuess = [...sequence]
-      startFlashing()
+  let start = 0
+  let pattern = setInterval(thisFunction, 1000)
+
+  function thisFunction() {
+    if (start < gamePattern.length) {
+      var currentColour = gamePattern[start]
+      animatePress(currentColour)
+      start++
     }
-  } else {
-    // end of game
-    alert('Game Over!')
+    else {
+      clearInterval(pattern)
+    }
   }
 }
 
-const startFlashing = async () => {
-  canClick = false
-  for (const panel of sequence) {
-    await flash(panel)
+// To check if userClickedPattern contains inside gamePattern
+function subList() {
+  for (var i = 0; i < userClickedPattern.length; i++) {
+    if (userClickedPattern[i] != gamePattern[i]) return false
   }
-  canClick = true
+
+  return true
 }
 
-startFlashing()
+// To reset the game when its game over
+function gameOver() {
+  level = 0
+  userClickedPattern = []
+  gamePattern = []
+  start = false
+
+  $('body').addClass("lose")
+  $('p').text("Game Over!!")
+
+  setTimeout(function() {
+    $('body').removeClass("lose")
+    $('p').text("Press any key to restart")
+  }, 1000)
+}
+
+// Handle any mouse click event on the buttons
+$('.btn').on("click", function(event) {
+  if (start) {
+
+    // To get the ID of the button
+    var userClickedButtonColour = event.target.id
+
+    // Animation and sound when a button is pressed
+    animatePress(userClickedButtonColour)
+
+    userClickedPattern.push(userClickedButtonColour)
+
+    // To check if the userClickedPattern is equal to gamePattern
+    if (subList() && userClickedPattern.length === gamePattern.length) {
+
+      // If its true, run the code below to go to the next level
+      level++
+      userClickedPattern = []
+      nextSequence()
+      showGamePattern()
+      $(".header").text("Level " + level)
+    }
+
+    // If there is a difference between userClickedPattern and gamePattern
+    else if (!subList()) {
+
+      // Initiate gameOver and reset the game
+      gameOver()
+    }
+  }
+})
