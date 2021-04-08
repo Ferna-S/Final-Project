@@ -15,7 +15,7 @@ const fourteen = document.querySelector('.olive')
 const fifteen = document.querySelector('.navy')
 const sixteen = document.querySelector('.saddlebrown')
 
-const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'cyan', 'indigo', 'coral', 'maroon', 'seagreen', 'grey', 'salmon', 'olive', 'navy', 'saddlebrown']
+const colors = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen]
 
 let gamePattern = []
 let userClickedPattern = []
@@ -30,11 +30,11 @@ function nextSequence () {
 }
 
 // Create the animation of button when pressed
-function animatePress (colors) {
-  $('#' + colour).addClass('.pressed')
+function animatePress (colour) {
+  document.getElementsByClassName('#' + colour).addClass('pressed')
 
   setTimeout(function () {
-    $('#' + colors).removeClass('.pressed')
+    document.getElementsByClassName('#' + colour).removeClass('pressed')
   }, 100)
 }
 
@@ -70,17 +70,17 @@ function gameOver () {
   gamePattern = []
   start = false
 
-  $('body').addClass('lose')
-  $('p').text('Game Over!!')
+  document.getElementsByClassName('body').addClass('lose')
+  document.getElementsByClassName('p').text('Game Over!!')
 
   setTimeout(function () {
-    $('body').removeClass('lose')
-    $('p').text('Press any key to restart')
+    document.getElementsByClassName('body').removeClass('lose')
+    document.getElementsByClassName('p').text('Press any key to restart')
   }, 1000)
 }
 
 // Handle any mouse click event on the buttons
-jQuery('.btn').on('click', function (event) {
+document.getElementsByClassName('.btn').on('click', function (event) {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
@@ -97,7 +97,7 @@ jQuery('.btn').on('click', function (event) {
       userClickedPattern = []
       nextSequence()
       showGamePattern()
-      $('.header').text('Level' + level)
+      document.getElementsByClassName('.header').text('Level' + level)
     } else if (!subList()) {
       // If there is a difference between userClickedPattern and gamePattern
       // Initiate gameOver and reset the game
