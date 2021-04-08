@@ -72,7 +72,7 @@ function gameOver () {
   $('body').addClass('lose')
   $('p').text('Game Over!!')
 
-  setTimeout (function() {
+  setTimeout(function () {
     $('body').removeClass('lose')
     $('p').text('Press any key to restart')
   }, 1000)
@@ -98,7 +98,7 @@ $('.btn').on('click', function (event) {
       showGamePattern()
       $('.header').text('Level' + level)
     } else if (!subList()) {
-       // If there is a difference between userClickedPattern and gamePattern 
+      // If there is a difference between userClickedPattern and gamePattern
       // Initiate gameOver and reset the game
       gameOver()
     }
