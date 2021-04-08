@@ -15,7 +15,8 @@ const fourteen = document.querySelector('.olive')
 const fifteen = document.querySelector('.navy')
 const sixteen = document.querySelector('.saddlebrown')
 
-const colors = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen]
+const colors = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'cyan', 'indigo', 'coral', 'maroon', 'seagreen', 'grey', 'salmon', 'olive', 'navy', 'saddlebrown']
+
 let gamePattern = []
 let userClickedPattern = []
 let level = 0
@@ -25,16 +26,15 @@ let start = false
 function nextSequence () {
   const randomNumber = Math.floor(Math.random() * 16)
   const randomColour = colors[randomNumber]
-  const $ = randomNumber
   gamePattern.push(randomColour)
 }
 
 // Create the animation of button when pressed
-function animatePress (colour) {
-  $('#' + colour).addClass('pressed')
+function animatePress (colors) {
+  $('#' + colour).addClass('.pressed')
 
   setTimeout(function () {
-    $('#' + colour).removeClass('pressed')
+    $('#' + colors).removeClass('.pressed')
   }, 100)
 }
 
@@ -80,7 +80,7 @@ function gameOver () {
 }
 
 // Handle any mouse click event on the buttons
-$('.btn').on('click', function (event) {
+jQuery('.btn').on('click', function (event) {
   if (start) {
     // To get the ID of the button
     const userClickedButtonColour = event.target.id
